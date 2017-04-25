@@ -1,2 +1,2 @@
-rootProject.name="spring-kafka-mongodb"
+rootProject.name="todo"
 include('core', 'producer', 'consumer')
