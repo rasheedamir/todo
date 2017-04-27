@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
@@ -18,6 +19,7 @@ import java.util.TimeZone;
 @ComponentScan
 @EnableAutoConfiguration
 @EnableZuulProxy
+@SpringBootApplication
 public class ToDoGatewayApp
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ToDoGatewayApp.class);
@@ -44,7 +46,7 @@ public class ToDoGatewayApp
             LOGGER.info("Running with Spring profile(s) : {}", Arrays.toString(environment.getActiveProfiles()));
         }
     }
-    
+
     /**
      * Main method, used to run the application.
      */
