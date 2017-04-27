@@ -1,7 +1,7 @@
 ToDo
 ====
 
-Service to manage 
+Service to manage todos!
 
 ## ToDos
 
@@ -9,12 +9,12 @@ Service to manage
 
 - [x] Support for a multi-project build
 - [x] Usage of the Gradle Wrapper.
-- [ ] Jackson
-- [ ] lombok
-- [ ] Kafka
+- [x] Jackson
+- [x] lombok
+- [x] Kafka
 - [ ] Builder Pattern
 - [ ] Validation
-- [ ] MongoDB
+- [x] MongoDB
 
 ### Version 1.5
 
@@ -40,4 +40,36 @@ define others ...
 - [ ] Generates code coverage metrics with JaCoCo.
 - [ ] Integrates with Sonar for performing code quality analysis.
 - [ ] Publishing to a Maven repository using the Maven Publishing plugin.
+- [ ] Swagger Docs
+- [ ] Swagger UI
+- [ ] CheckStyle
+- [ ] Gateway
+- [ ] Tracing
+- [ ] Authentication
+- [ ] Service Discovery with Consul
+- [ ] Logging
+- [ ] 
 
+## Environment Variables
+
+Please set following environment variables:
+
+1. MONGODB_HOST
+2. MONGODB_PORT
+3. KAFKA_CLUSTER
+
+## Components
+
+Here are the list of components (microservices):
+
+1. reminder/reminder - send reminders when a reminder is due
+2. search - search todos
+3. gateway - edge service
+
+## Backing Services
+
+1. MongoDB
+2. Kafka
+3. ElasticSearch
+4. Cassandra
+5. Consul

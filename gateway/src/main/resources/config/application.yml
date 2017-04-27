@@ -1,14 +1,13 @@
-# this is mandatory; as app name is appended in each log for grouping in elastic stack
-app:
-  name: spring-kafka-mongodb
-
 # this is mandatory; as environment is appended in each log for grouping in elastic stack
 environment: ${ENVIRONMENT}
 
 server:
-  port: 5001
+  context-path: /gateway
+  port: 4001
 
 spring:
+  application:
+    name: gateway
   data:
     mongodb:
       host: ${MONGODB_HOST}
@@ -37,9 +36,3 @@ spring:
       enabled: true
       # Force the encoding to the configured charset on HTTP requests and responses.
       force: true
-
-todo:
-  kafka:
-    producer:
-      bootstrap: ${KAFKA_CLUSTER}
-      todoTopic: todo

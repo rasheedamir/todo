@@ -13,7 +13,7 @@ spring:
     mongodb:
       host: ${MONGODB_HOST}
       port: ${MONGODB_PORT}
-      database: qrmanager
+      database: todo
     rest:
       basePath: /api/v1
 
@@ -37,3 +37,10 @@ spring:
       enabled: true
       # Force the encoding to the configured charset on HTTP requests and responses.
       force: true
+
+todo:
+  kafka:
+    producer:
+      bootstrap: ${KAFKA_CLUSTER}
+      group: todo-consumer
+      todoTopic: todo

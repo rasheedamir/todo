@@ -1,14 +1,13 @@
-# this is mandatory; as app name is appended in each log for grouping in elastic stack
-app:
-  name: spring-kafka-mongodb
-
 # this is mandatory; as environment is appended in each log for grouping in elastic stack
 environment: ${ENVIRONMENT}
 
 server:
+  context-path: /gateway
   port: 5001
 
 spring:
+  application:
+    name: gateway
   data:
     mongodb:
       host: ${MONGODB_HOST}
@@ -42,4 +41,5 @@ todo:
   kafka:
     producer:
       bootstrap: ${KAFKA_CLUSTER}
+      group: todo-consumer
       todoTopic: todo
