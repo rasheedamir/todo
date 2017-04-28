@@ -1,2 +1,2 @@
 rootProject.name="todo"
-include('core', 'producer', 'consumer', 'gateway')
+include('core', 'store', 'search', 'gateway', 'mapstructspi')

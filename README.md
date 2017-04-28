@@ -15,6 +15,8 @@ Service to manage todos!
 - [ ] Builder Pattern
 - [ ] Validation
 - [x] MongoDB
+- [x] MapStruct
+- [x] Generic Exception Handling!
 
 ### Version 1.5
 
@@ -44,7 +46,7 @@ define others ...
 - [ ] Swagger UI
 - [ ] CheckStyle
 - [ ] Gateway
-- [ ] Tracing
+- [ ] Tracing (sleuth + zipkin)
 - [ ] Authentication
 - [ ] Service Discovery with Consul
 - [ ] Logging

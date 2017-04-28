@@ -31,10 +31,10 @@
                 <rootCauseFirst>true</rootCauseFirst>
             </throwableConverter>
             <!-- https://github.com/logstash/logstash-logback-encoder/tree/logstash-logback-encoder-4.6#global-custom-fields -->
-            <customFields>{"app":"gateway"}</customFields>
+            <customFields>{"app":"search"}</customFields>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/gateway.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logs/search.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>5</maxHistory>
         </rollingPolicy>
     </appender>
