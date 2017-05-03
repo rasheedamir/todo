@@ -1,6 +1,6 @@
 package io.as.todo.store.rest;
 
-import io.as.todo.core.ToDo;
+import io.as.todo.core.domain.ToDo;
 import io.as.todo.store.service.ToDoDispatcher;
 import io.as.todo.store.RestPath;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package io.as.todo.store.service;
 
-import io.as.todo.core.EntityAction;
-import io.as.todo.core.EntityEvent;
-import io.as.todo.core.ToDo;
+import io.as.todo.core.domain.EntityAction;
+import io.as.todo.core.domain.EntityEvent;
+import io.as.todo.core.domain.ToDo;
 import io.as.todo.store.config.ToDoProperties;
 import io.as.todo.store.repository.ToDoStoreRepository;
 import org.apache.kafka.clients.producer.RecordMetadata;

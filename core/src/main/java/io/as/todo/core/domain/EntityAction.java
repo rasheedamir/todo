@@ -1,4 +1,4 @@
-package io.as.todo.core;
+package io.as.todo.core.domain;
 
 /**
  * An action that have been triggered for an entity.

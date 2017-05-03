@@ -37,6 +37,7 @@ subprojects {
         compile group: 'org.projectlombok', name: 'lombok', version: '1.16.14'
 
         // logging specific
+        compile group: 'log4j', name: 'log4j', version: log4j_version
         compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: logstash_logback_encoder_version
         compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
         compile group: 'ch.qos.logback', name: 'logback-core', version: logback_version

@@ -1,6 +1,6 @@
 package io.as.todo.search.config;
 
-import io.as.todo.core.EntityEvent;
+import io.as.todo.core.domain.EntityEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.Deserializer;
 import org.apache.kafka.common.serialization.StringDeserializer;

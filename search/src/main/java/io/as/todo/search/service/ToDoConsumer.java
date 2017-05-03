@@ -1,6 +1,6 @@
 package io.as.todo.search.service;
 
-import io.as.todo.core.EntityEvent;
+import io.as.todo.core.domain.EntityEvent;
 import io.as.todo.search.domain.ToDoEntity4Search;
 import io.as.todo.search.mapper.ToDoMapper;
 import io.as.todo.search.repository.ToDoSearchRepository;

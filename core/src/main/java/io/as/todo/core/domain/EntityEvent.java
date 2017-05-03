@@ -1,4 +1,4 @@
-package io.as.todo.core;
+package io.as.todo.core.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;

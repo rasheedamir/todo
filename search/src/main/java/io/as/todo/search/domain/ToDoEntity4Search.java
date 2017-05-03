@@ -1,7 +1,6 @@
 package io.as.todo.search.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.NonNull;
 import lombok.Value;
 import org.hibernate.validator.constraints.NotEmpty;

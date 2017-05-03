@@ -1,6 +1,6 @@
 package io.as.todo.store.config;
 
-import io.as.todo.core.EntityEvent;
+import io.as.todo.core.domain.EntityEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -16,12 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@SuppressWarnings("ALL")
+//@SuppressWarnings("ALL")
 public class KafkaProducerConfig
 {
     private final ToDoProperties toDoProperties;
 
     @Autowired
+    @SuppressWarnings("ALL")
     public KafkaProducerConfig(ToDoProperties toDoProperties)
     {
         this.toDoProperties = toDoProperties;
@@ -48,8 +49,7 @@ public class KafkaProducerConfig
     @Bean
     public KafkaTemplate<String, EntityEvent> workUnitsKafkaTemplate()
     {
-        KafkaTemplate<String, EntityEvent> kafkaTemplate =  new KafkaTemplate<>(producerFactory());
-        return kafkaTemplate;
+        return new KafkaTemplate<>(producerFactory());
     }
 
     @Bean
