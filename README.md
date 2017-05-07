@@ -50,6 +50,8 @@ define others ...
 - [ ] Service Discovery with Consul
 - [ ] Logging
 - [ ] Limit login attempts
+- [ ] Docker
+- [ ] Kubernetes
 - [ ] 
 
 ## Environment Variables
