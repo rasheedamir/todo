@@ -133,3 +133,4 @@ classes
 !.gitkeep
 !.gitattributes
 !.gitignore
+!.editorconfig
