@@ -18,8 +18,8 @@ import java.util.TimeZone;
 
 @ComponentScan
 @EnableAutoConfiguration
-@EnableZuulProxy
 @SpringBootApplication
+@EnableZuulProxy
 public class ToDoGatewayApp
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ToDoGatewayApp.class);

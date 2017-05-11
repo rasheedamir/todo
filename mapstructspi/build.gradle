@@ -1,5 +1,15 @@
-bootRepackage {
-    enabled = false
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+jar {
+    baseName = project.name
+    version = '1.1.0.RELEASE'
 }
 
 dependencies {

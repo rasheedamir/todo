@@ -1,0 +1,21 @@
+consul:
+    token: to-change-in-production-client
+
+spring:
+    application:
+        name: gateway
+    profiles:
+        # The commented value for `active` can be replaced with valid spring profiles to load.
+        # Otherwise, it will be filled in by gradle when building the WAR file
+        # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
+        active: #spring.profiles.active#
+    cloud:
+        consul:
+            config:
+                fail-fast: true
+                format: yaml # set this to "files" if using git2consul
+                profile-separator: "-"
+            retry:
+                initial-interval: 1000
+                max-interval: 2000
+                max-attempts: 100

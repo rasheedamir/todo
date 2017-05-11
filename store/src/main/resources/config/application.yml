@@ -38,6 +38,19 @@ spring:
       force: true
 
 todo:
-  kafka:
-    bootstrap-servers: ${KAFKA_CLUSTER}
-    todo-topic: todo
+    kafka:
+        bootstrap-servers: ${KAFKA_CLUSTER}
+        todo-topic: todo
+
+endpoints:
+    env:
+        enabled: true
+        sensitive: false # not good idea!
+    health:
+        enabled: true
+        sensitive: false
+
+# TODO enable & get rid of it - full authentication is required to access actuator endpoints. Consider adding Spring Security or set 'management.security.enabled' to false.
+management:
+    security:
+        enable: false

@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
@@ -18,8 +20,10 @@ import java.util.TimeZone;
 
 @ComponentScan
 @EnableAutoConfiguration
-@SpringBootApplication
 @EnableConfigurationProperties
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableCircuitBreaker
 public class ToDoStoreApp
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ToDoStoreApp.class);

@@ -1,38 +1,68 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overriden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+#
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+zuul:
+    host:
+        connect-timeout-millis: 5000
+        socket-timeout-millis: 10000
+    ignoredServices: 'consul,gateway' # Prevent Consul and the "gateway" app itself from having a Zuul route automatically created for them
+
+# See https://github.com/Netflix/Hystrix/wiki/Configuration
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 10000
+
 # this is mandatory; as environment is appended in each log for grouping in elastic stack
 environment: ${ENVIRONMENT}
 
 server:
-  context-path: /gateway
-  port: 4001
+    context-path: /gateway
+    port: 4001
+
+management:
+    context-path: /management
+    health:
+        mail:
+            enabled: false # When using the MailService, configure an SMTP server and set this to true
 
 spring:
-  application:
-    name: gateway
-  data:
-    mongodb:
-      host: ${MONGODB_HOST}
-      port: ${MONGODB_PORT}
-      database: todo
-    rest:
-      basePath: /api/v1
+    application:
+        name: gateway
 
-  jackson:
-    time-zone: UTC
-    serialization:
-      WRITE_DATES_AS_TIMESTAMPS: false
-      indent_output: true
+    jackson:
+        time-zone: UTC
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+            indent_output: true
 
-  mvc:
-    throw-exception-if-no-handler-found: true
+    mvc:
+        throw-exception-if-no-handler-found: true
+        favicon:
+            enabled: false
 
-  resources:
-    add-mappings: false
+    resources:
+        add-mappings: false
 
-  http:
-    encoding:
-      # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly.
-      charset: UTF-8
-      # Enable http encoding support.
-      enabled: true
-      # Force the encoding to the configured charset on HTTP requests and responses.
-      force: true
+    http:
+        encoding:
+        # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly.
+        charset: UTF-8
+        # Enable http encoding support.
+        enabled: true
+        # Force the encoding to the configured charset on HTTP requests and responses.
+        force: true
