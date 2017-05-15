@@ -52,7 +52,8 @@ define others ...
 - [ ] Limit login attempts
 - [ ] Docker
 - [ ] Kubernetes
-- [ ] 
+- [ ] Logbook
+- [ ] Sleuth (https://github.com/spring-cloud/spring-cloud-sleuth)
 
 ## Environment Variables
 

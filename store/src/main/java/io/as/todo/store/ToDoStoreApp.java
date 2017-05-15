@@ -59,12 +59,10 @@ public class ToDoStoreApp
         SpringApplication app = new SpringApplication(ToDoStoreApp.class);
         Environment env = app.run(args).getEnvironment();
         LOGGER.info("Access URLs:\n----------------------------------------------------------\n\t" +
-                        "Local: \t\thttp://127.0.0.1:{}{}\n\t" +
-                        "External: \thttp://{}:{}{}\n----------------------------------------------------------",
+                        "Local: \t\thttp://127.0.0.1:{}\n\t" +
+                        "External: \thttp://{}:{}\n----------------------------------------------------------",
                 env.getProperty("server.port"),
-                env.getProperty("server.context-path"),
                 InetAddress.getLocalHost().getHostAddress(),
-                env.getProperty("server.port"),
-                env.getProperty("server.context-path"));
+                env.getProperty("server.port"));
     }
 }

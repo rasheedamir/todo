@@ -3,7 +3,6 @@ environment: ${ENVIRONMENT}
 
 server:
   port: 5001
-  context-path: /store
 
 spring:
   application:
