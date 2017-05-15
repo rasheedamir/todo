@@ -3,6 +3,7 @@ package io.as.todo.store.json.request;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import io.as.todo.store.json.Command;
 import lombok.Value;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,10 +18,12 @@ import javax.validation.constraints.NotNull;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public final class ApiToDoUpdateCommand implements Command
 {
+    // TODO - they should be only applied if user changed them; otherwise must be ignored
     @NotNull
     @NotEmpty
     private final String title;
     private final boolean isTitleUpdated;
+
     private final boolean isFinished;
     private final boolean isFinishedUpdated;
 
@@ -42,7 +45,8 @@ public final class ApiToDoUpdateCommand implements Command
         return (new ApiToDoUpdateCommand.Builder()).title(this.title).isFinished(this.isFinished);
     }
 
-    public static class Builder
+    @JsonPOJOBuilder(withPrefix = "")
+    public static final class Builder
     {
         private String title;
         private boolean isTitleUpdated;
@@ -73,7 +77,6 @@ public final class ApiToDoUpdateCommand implements Command
         {
             ApiToDoUpdateCommand command = new ApiToDoUpdateCommand(this.title, this.isTitleUpdated, this.isFinished, this.isFinishedUpdated);
             command.validate();
-            // validate(command);
             return command;
         }
 

@@ -9,10 +9,10 @@ import java.util.Set;
 
 @Getter
 @ToString
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public final class ApiValidationException extends RuntimeException
 {
-    private final Set<ConstraintViolation<Command>> violations;
+    private transient Set<ConstraintViolation<Command>> violations;
 
     public ApiValidationException(Set<ConstraintViolation<Command>> violations)
     {
