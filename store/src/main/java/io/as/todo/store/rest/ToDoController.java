@@ -1,6 +1,8 @@
 package io.as.todo.store.rest;
 
 import io.as.todo.core.domain.ToDo;
+import io.as.todo.store.json.request.ApiCreateToDoCommand;
+import io.as.todo.store.mapper.ApiCreateToDoCommandMapper;
 import io.as.todo.store.service.ToDoDispatcher;
 import io.as.todo.store.RestPath;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +33,9 @@ public class ToDoController
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ToDo> create(@Valid @RequestBody ToDo toDo)
+    public ResponseEntity<ToDo> create(@Valid @RequestBody ApiCreateToDoCommand command)
     {
-        ToDo dispatchedToDo = toDoDispatcher.dispatch(toDo);
+        ToDo dispatchedToDo = toDoDispatcher.dispatch(ApiCreateToDoCommandMapper.INSTANCE.mapApiCreateToDoCommandToToDo(command));
         return ResponseEntity.created(createUri(dispatchedToDo))
                 .body(dispatchedToDo);
     }

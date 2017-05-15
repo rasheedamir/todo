@@ -6,18 +6,18 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ApiToDoUpdateCommandTest extends BaseCommandTest
+public class ApiUpdateToDoCommandTest extends BaseCommandTest
 {
     @Test(expected = ApiValidationException.class)
     public void title_should_not_be_null()
     {
-        ApiToDoUpdateCommand.newBuilder().title(null).build();
+        ApiUpdateToDoCommand.newBuilder().title(null).build();
     }
 
     @Test
     public void verify_equals()
     {
-        EqualsVerifier.forClass(ApiToDoUpdateCommand.class).verify();
+        EqualsVerifier.forClass(ApiUpdateToDoCommand.class).verify();
     }
 
     @Test
@@ -26,7 +26,7 @@ public class ApiToDoUpdateCommandTest extends BaseCommandTest
         String json = "{\n" +
             "    \"title\": \"My first todo\"\n" +
             "}";
-        ApiToDoUpdateCommand request = deserialize(json, ApiToDoUpdateCommand.class);
+        ApiUpdateToDoCommand request = deserialize(json, ApiUpdateToDoCommand.class);
         assertThat(request.isTitleUpdated()).isEqualTo(true);
         assertThat(request.isFinishedUpdated()).isEqualTo(false);
     }
@@ -38,7 +38,7 @@ public class ApiToDoUpdateCommandTest extends BaseCommandTest
             "    \"title\": \"My first todo\",\n" +
             "    \"isFinished\": \"true\"\n" +
             "}";
-        ApiToDoUpdateCommand request = deserialize(json, ApiToDoUpdateCommand.class);
+        ApiUpdateToDoCommand request = deserialize(json, ApiUpdateToDoCommand.class);
         assertThat(request.isTitleUpdated()).isEqualTo(true);
         assertThat(request.isFinishedUpdated()).isEqualTo(true);
     }

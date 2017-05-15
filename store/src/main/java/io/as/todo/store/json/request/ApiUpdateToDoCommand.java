@@ -14,9 +14,9 @@ import javax.validation.constraints.NotNull;
  * to support both partial and full updates
  */
 @Value
-@JsonDeserialize(builder = ApiToDoUpdateCommand.Builder.class)
+@JsonDeserialize(builder = ApiUpdateToDoCommand.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public final class ApiToDoUpdateCommand implements Command
+public final class ApiUpdateToDoCommand implements Command
 {
     // TODO - they should be only applied if user changed them; otherwise must be ignored
     @NotNull
@@ -27,7 +27,7 @@ public final class ApiToDoUpdateCommand implements Command
     private final boolean isFinished;
     private final boolean isFinishedUpdated;
 
-    private ApiToDoUpdateCommand(String title, boolean isTitleUpdated, boolean isFinished, boolean isFinishedUpdated)
+    private ApiUpdateToDoCommand(String title, boolean isTitleUpdated, boolean isFinished, boolean isFinishedUpdated)
     {
         this.title = title;
         this.isTitleUpdated = isTitleUpdated;
@@ -35,14 +35,14 @@ public final class ApiToDoUpdateCommand implements Command
         this.isFinishedUpdated = isFinishedUpdated;
     }
 
-    public static ApiToDoUpdateCommand.Builder newBuilder()
+    public static ApiUpdateToDoCommand.Builder newBuilder()
     {
-        return new ApiToDoUpdateCommand.Builder();
+        return new ApiUpdateToDoCommand.Builder();
     }
 
-    public ApiToDoUpdateCommand.Builder toBuilder()
+    public ApiUpdateToDoCommand.Builder toBuilder()
     {
-        return (new ApiToDoUpdateCommand.Builder()).title(this.title).isFinished(this.isFinished);
+        return (new ApiUpdateToDoCommand.Builder()).title(this.title).isFinished(this.isFinished);
     }
 
     @JsonPOJOBuilder(withPrefix = "")
@@ -58,7 +58,7 @@ public final class ApiToDoUpdateCommand implements Command
         }
 
         @JsonSetter
-        public ApiToDoUpdateCommand.Builder title(String title)
+        public ApiUpdateToDoCommand.Builder title(String title)
         {
             this.title = title;
             isTitleUpdated = true;
@@ -66,23 +66,23 @@ public final class ApiToDoUpdateCommand implements Command
         }
 
         @JsonSetter
-        public ApiToDoUpdateCommand.Builder isFinished(boolean isFinished)
+        public ApiUpdateToDoCommand.Builder isFinished(boolean isFinished)
         {
             this.isFinished = isFinished;
             isFinishedUpdated = true;
             return this;
         }
 
-        public ApiToDoUpdateCommand build()
+        public ApiUpdateToDoCommand build()
         {
-            ApiToDoUpdateCommand command = new ApiToDoUpdateCommand(this.title, this.isTitleUpdated, this.isFinished, this.isFinishedUpdated);
+            ApiUpdateToDoCommand command = new ApiUpdateToDoCommand(this.title, this.isTitleUpdated, this.isFinished, this.isFinishedUpdated);
             command.validate();
             return command;
         }
 
         public String toString()
         {
-            return "ApiToDoUpdateCommand.Builder(title=" + this.title + ", isTitleUpdated=" + this.isTitleUpdated + ", isFinished=" + this.isFinished + ", isFinishedUpdated=" + this.isFinishedUpdated + ")";
+            return "ApiUpdateToDoCommand.Builder(title=" + this.title + ", isTitleUpdated=" + this.isTitleUpdated + ", isFinished=" + this.isFinished + ", isFinishedUpdated=" + this.isFinishedUpdated + ")";
         }
 
     }

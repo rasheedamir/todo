@@ -10,26 +10,26 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Value
-@JsonDeserialize(builder = ApiToDoCreateCommand.Builder.class)
-public final class ApiToDoCreateCommand implements Command
+@JsonDeserialize(builder = ApiCreateToDoCommand.Builder.class)
+public final class ApiCreateToDoCommand implements Command
 {
     @NotNull
     @NotEmpty
     private final String title;
 
-    private ApiToDoCreateCommand(String title)
+    private ApiCreateToDoCommand(String title)
     {
         this.title = title;
     }
 
-    public static ApiToDoCreateCommand.Builder newBuilder()
+    public static ApiCreateToDoCommand.Builder newBuilder()
     {
-        return new ApiToDoCreateCommand.Builder();
+        return new ApiCreateToDoCommand.Builder();
     }
 
-    public ApiToDoCreateCommand.Builder toBuilder()
+    public ApiCreateToDoCommand.Builder toBuilder()
     {
-        return (new ApiToDoCreateCommand.Builder()).title(this.title);
+        return (new ApiCreateToDoCommand.Builder()).title(this.title);
     }
 
     @JsonPOJOBuilder(withPrefix = "")
@@ -42,22 +42,22 @@ public final class ApiToDoCreateCommand implements Command
         }
 
         @JsonSetter
-        public ApiToDoCreateCommand.Builder title(String title)
+        public ApiCreateToDoCommand.Builder title(String title)
         {
             this.title = title;
             return this;
         }
 
-        public ApiToDoCreateCommand build()
+        public ApiCreateToDoCommand build()
         {
-            ApiToDoCreateCommand command = new ApiToDoCreateCommand(this.title);
+            ApiCreateToDoCommand command = new ApiCreateToDoCommand(this.title);
             command.validate();
             return command;
         }
 
         public String toString()
         {
-            return "ApiToDoCreateCommand.Builder(title=" + this.title + ")";
+            return "ApiCreateToDoCommand.Builder(title=" + this.title + ")";
         }
     }
 

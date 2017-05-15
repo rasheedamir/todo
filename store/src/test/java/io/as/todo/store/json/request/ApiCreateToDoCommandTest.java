@@ -6,18 +6,18 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ApiToDoCreateCommandTest extends BaseCommandTest
+public class ApiCreateToDoCommandTest extends BaseCommandTest
 {
     @Test
     public void verify_equals()
     {
-        EqualsVerifier.forClass(ApiToDoCreateCommand.class).verify();
+        EqualsVerifier.forClass(ApiCreateToDoCommand.class).verify();
     }
 
     @Test(expected = ApiValidationException.class)
     public void title_is_mandatory()
     {
-        ApiToDoCreateCommand.newBuilder().build();
+        ApiCreateToDoCommand.newBuilder().build();
     }
 
     @Test
@@ -27,7 +27,7 @@ public class ApiToDoCreateCommandTest extends BaseCommandTest
         String json = "{\n" +
             "    \"title\": \"" + title + "\"\n" +
             "}";
-        ApiToDoCreateCommand command = deserialize(json, ApiToDoCreateCommand.class);
+        ApiCreateToDoCommand command = deserialize(json, ApiCreateToDoCommand.class);
         assertEquals(title, command.getTitle());
     }
 }
