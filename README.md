@@ -51,7 +51,7 @@ define others ...
 - [ ] Sleuth (https://github.com/spring-cloud/spring-cloud-sleuth)
 - [ ] Java Client
 - [ ] Config management using Consul backed with Git @Ahmad
-- [ ] Backing service i.e. mongodb, cassandra, etc. discovery through Consul @Ahmad
+- [ ] Backing service i.e. mongodb, cassandra, kafka,  etc. discovery through Consul @Ahmad
 - [ ] Secrets management using Consul + Vault @Ahmad
 
 ## Environment Variables
