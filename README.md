@@ -5,8 +5,6 @@ Service to manage todos!
 
 ## ToDos
 
-### Version 1
-
 - [x] Support for a multi-project build
 - [x] Usage of the Gradle Wrapper.
 - [x] Jackson
@@ -17,9 +15,6 @@ Service to manage todos!
 - [x] MongoDB
 - [x] MapStruct
 - [x] Generic Exception Handling!
-
-### Version 1.5
-
 - [ ] Fallback (Hystrix)
 - [ ] Rate Limiting
 - [ ] Use spring data rest and on save event post to Kafka
@@ -47,13 +42,17 @@ define others ...
 - [ ] Gateway
 - [ ] Tracing (sleuth + zipkin)
 - [ ] Authentication
-- [ ] Service Discovery with Consul
+- [ ] Service Discovery using Consul
 - [ ] Logging
 - [ ] Limit login attempts
 - [ ] Docker
 - [ ] Kubernetes
 - [ ] Logbook
 - [ ] Sleuth (https://github.com/spring-cloud/spring-cloud-sleuth)
+- [ ] Java Client
+- [ ] Config management using Consul backed with Git @Ahmad
+- [ ] Backing service i.e. mongodb, cassandra, etc. discovery through Consul @Ahmad
+- [ ] Secrets management using Consul + Vault @Ahmad
 
 ## Environment Variables
 
