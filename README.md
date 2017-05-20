@@ -36,8 +36,8 @@ define others ...
 - [ ] Generates code coverage metrics with JaCoCo.
 - [ ] Integrates with Sonar for performing code quality analysis.
 - [ ] Publishing to a Maven repository using the Maven Publishing plugin.
-- [ ] Swagger Docs
-- [ ] Swagger UI
+- [ ] Swagger Docs @Rasheed - wip
+- [ ] Swagger UI @Rasheed - wip
 - [ ] CheckStyle
 - [ ] Gateway
 - [ ] Tracing (sleuth + zipkin)

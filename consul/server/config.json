@@ -1,0 +1,7 @@
+{
+    "data_dir": "/tmp/consul",
+    "log_level": "INFO",
+    "node_name": "consul-server",
+    "server": true,
+    "bootstrap": true
+}
