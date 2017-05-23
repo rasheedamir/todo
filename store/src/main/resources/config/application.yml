@@ -1,5 +1,5 @@
 # this is mandatory; as environment is appended in each log for grouping in elastic stack
-environment: ${ENVIRONMENT}
+environment: ${ENVIRONMENT:dev}
 
 server:
   port: 5001
@@ -9,8 +9,8 @@ spring:
     name: store
   data:
     mongodb:
-      host: ${MONGODB_HOST}
-      port: ${MONGODB_PORT}
+      host: ${MONGODB_HOST:localhost}
+      port: ${MONGODB_PORT:27017}
       database: todo
     rest:
       basePath: /api/v1
@@ -36,9 +36,10 @@ spring:
       # Force the encoding to the configured charset on HTTP requests and responses.
       force: true
 
+
 todo:
     kafka:
-        bootstrap-servers: ${KAFKA_CLUSTER}
+        bootstrap-servers: ${KAFKA_CLUSTER:localhost}
         todo-topic: todo
 
 endpoints:
