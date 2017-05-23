@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-consul agent -config-file=config.json
+consul agent -config-file=config.json -ui

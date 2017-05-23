@@ -4,5 +4,5 @@
     "node_name": "rasheed-client",
     "server": false,
     "start_join": ["172.17.8.101"],
-    "bind_addr": "192.168.1.4"
+    "bind_addr": "10.0.114.19"
 }

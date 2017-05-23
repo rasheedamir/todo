@@ -36,8 +36,6 @@ define others ...
 - [ ] Generates code coverage metrics with JaCoCo.
 - [ ] Integrates with Sonar for performing code quality analysis.
 - [ ] Publishing to a Maven repository using the Maven Publishing plugin.
-- [ ] Swagger Docs @Rasheed - wip
-- [ ] Swagger UI @Rasheed - wip
 - [ ] CheckStyle
 - [ ] Gateway
 - [ ] Tracing (sleuth + zipkin)
@@ -53,6 +51,34 @@ define others ...
 - [ ] Config management using Consul backed with Git @Ahmad
 - [ ] Backing service i.e. mongodb, cassandra, kafka,  etc. discovery through Consul @Ahmad
 - [ ] Secrets management using Consul + Vault @Ahmad
+
+### Api Documentation
+
+- [ ] Swagger Docs @Rasheed - wip
+- [ ] Swagger UI @Rasheed - wip
+
+### Filters
+
+- [ ] MDC filter to copy request id
+- [ ] Request id filter
+- [ ] Thread logging filter ( enable log per request on the fly )
+
+### Errors
+
+- [ ] Always return rest response!
+
+### Jackson
+
+- [ ] Indent output
+- [ ] Always include null fields in response
+
+### Client
+
+- [ ] Generate Java Client using Swagger API
+
+### Docker
+
+- [ ] Build docker image
 
 ## Environment Variables
 
