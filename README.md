@@ -78,7 +78,19 @@ define others ...
 
 ### Docker
 
-- [ ] Build docker image
+- [x] Build docker image
+- [ ] Build docker compose files including backing services
+
+### Local Development
+
+- [ ] How to run subset of biz  microservices along with  backing services locally?
+- 
+
+### Testing?
+
+- [ ] How to write integration tests?
+- [ ] How to run integration tests?
+- [ ] E2E?
 
 ## Environment Variables
 

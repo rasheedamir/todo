@@ -3,8 +3,6 @@ version: '2'
 services:
     todostore-app:
         image: todostore
-        external_links:
-            - todostore-mongo:mongo
         environment:
             - ENVIRONMENT=dev
             - SPRING_PROFILES_ACTIVE=prod,swagger
@@ -12,13 +10,9 @@ services:
             - SPRING_CLOUD_CONSUL_PORT=8500
             - MONGODB_HOST=mongo
             - MONGODB_PORT=27017
+            - KAFKA_CLUSTER=kafka:9092
         ports:
             - 8085:8080
-
-    todostore-mongo:
-        extends:
-            file: mongo.yml
-            service: todostore-mongo
 
     consul:
         image: consul:0.8.3
@@ -29,3 +23,15 @@ services:
             - 8600:8600
         command: consul agent -dev -ui -client 0.0.0.0
 
+    mongo:
+        container_name: mongo
+        image: mongo:latest
+        ports:
+            - 27017:27017
+
+    kafka:
+        image: spotify/kafka
+        container_name: kafka
+        ports:
+            - 2181:2181
+            - 9092:9092
