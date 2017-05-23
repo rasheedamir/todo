@@ -48,13 +48,17 @@ define others ...
 - [ ] Logbook
 - [ ] Sleuth (https://github.com/spring-cloud/spring-cloud-sleuth)
 - [ ] Java Client
+
+### Consul
+
 - [ ] Config management using Consul backed with Git @Ahmad
 - [ ] Backing service i.e. mongodb, cassandra, kafka,  etc. discovery through Consul @Ahmad
 - [ ] Secrets management using Consul + Vault @Ahmad
+- [ ] Gateway to discover services through Consul @Ahmad
 
 ### Api Documentation
 
-- [ ] Swagger Docs @Rasheed - wip
+- [x] Swagger Docs @Rasheed - wip
 - [ ] Swagger UI @Rasheed - wip
 
 ### Filters
@@ -79,7 +83,7 @@ define others ...
 ### Docker
 
 - [x] Build docker image
-- [ ] Build docker compose files including backing services
+- [x] Build docker compose files including backing services
 
 ### Local Development
 
@@ -90,7 +94,18 @@ define others ...
 
 - [ ] How to write integration tests?
 - [ ] How to run integration tests?
-- [ ] E2E?
+- [ ] E2E? Acceptance Tests != Integration Tests
+
+### Code Quality
+
+- [ ] Sonar
+- [ ] CheckStyle
+- [ ] Jacoco - Code Coverage http://www.eclemma.org/jacoco/
+
+### Rest Errors
+
+- [ ] Return harmonized rest errors
+- [ ] 
 
 ## Environment Variables
 

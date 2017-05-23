@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StopWatch;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -45,22 +46,18 @@ public class SwaggerConfiguration
             properties.getSwagger().getLicenseUrl());
 
         /*
-            Docket docket = new Docket(DocumentationType.SWAGGER_2)
-            .apiInfo(apiInfo)
-            .forCodeGeneration(true)
-            .genericModelSubstitutes(ResponseEntity.class)
-            .ignoredParameterTypes(java.sql.Date.class)
-            .directModelSubstitute(java.time.LocalDate.class, java.sql.Date.class)
-            .directModelSubstitute(java.time.ZonedDateTime.class, Date.class)
-            .directModelSubstitute(java.time.LocalDateTime.class, Date.class)
-            .select()
-            .paths(regex(DEFAULT_INCLUDE_PATTERN))
-            .build();
-        watch.stop();
-        log.debug("Started Swagger in {} ms", watch.getTotalTimeMillis());
+    @Bean
+    public Docket api()
+    {
+        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("org.baeldung.web.controller")).paths(PathSelectors.ant("/foos/*")).build().apiInfo(apiInfo()).useDefaultResponseMessages(false)
+                .globalResponseMessage(RequestMethod.GET, newArrayList(new ResponseMessageBuilder().code(500).message("500 message").responseModel(new ModelRef("Error")).build(), new ResponseMessageBuilder().code(403).message("Forbidden!!!!!").build()));
+    }
          */
 
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo)
+                .forCodeGeneration(true)
+                .genericModelSubstitutes(ResponseEntity.class)
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(regex(DEFAULT_INCLUDE_PATTERN))
