@@ -38,6 +38,17 @@ todo:
         bootstrap-servers: ${KAFKA_CLUSTER}
         todo-topic: todo
 
+    swagger:
+        title: ToDo Store API
+        description: ToDo Store API documentation
+        version: 0.0.1  # TODO - this should be set dynamically
+        termsOfServiceUrl:
+        contactName:
+        contactUrl:
+        contactEmail:
+        license:
+        licenseUrl:
+
 endpoints:
     env:
         enabled: true
@@ -50,3 +61,4 @@ endpoints:
 management:
     security:
         enable: false
+

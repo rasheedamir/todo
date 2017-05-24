@@ -55,11 +55,14 @@ define others ...
 - [ ] Backing service i.e. mongodb, cassandra, kafka,  etc. discovery through Consul @Ahmad
 - [ ] Secrets management using Consul + Vault @Ahmad
 - [ ] Gateway to discover services through Consul @Ahmad
+- [ ] Developer should be able change configs locally in a file as each developer won't have his own git repo! @Ahmad
 
 ### Api Documentation
 
-- [x] Swagger Docs @Rasheed - wip
-- [ ] Swagger UI @Rasheed - wip
+- [x] Swagger Docs @Rasheed
+- [x] Swagger UI @Rasheed
+- [ ] Customize the header of the page to include app name instead of link swagger!
+- [ ] Fix generic api response codes
 
 ### Filters
 
@@ -106,6 +109,17 @@ define others ...
 
 - [ ] Return harmonized rest errors
 - [ ] 
+
+### ascii-doc
+
+- [ ] Using swagger generate ascii-doc which can be referenced in the README
+- [ ] 
+
+### Logging
+
+- [ ] Logbook
+- [ ] Log response times IN & OUT
+- [ ] MDC
 
 ## Environment Variables
 
