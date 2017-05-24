@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import io.as.todo.store.json.Command;
+import io.swagger.annotations.ApiModel;
 import lombok.Value;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 /**
  * to support both partial and full updates
  */
+@ApiModel
 @Value
 @JsonDeserialize(builder = ApiUpdateToDoCommand.Builder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)

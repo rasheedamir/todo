@@ -22,6 +22,8 @@ apply plugin: 'propdeps'
 apply plugin: 'propdeps-idea'
 apply plugin: 'war'
 
+apply from: 'gradle/docker.gradle'
+
 dependencyManagement {
     imports {
         mavenBom 'org.springframework.cloud:spring-cloud-dependencies:' + spring_cloud_version
@@ -61,9 +63,6 @@ dependencies {
     // mongodb
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb'
 
-    // data rest
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest'
-
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
@@ -83,8 +82,9 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
     compile group: 'ch.qos.logback', name: 'logback-core', version: logback_version
 
-    // swagger
+    // swagger ./gradlew bootRepackage buildDocker
     compile "io.springfox:springfox-swagger2:2.6.1"
+    compile 'io.springfox:springfox-swagger-ui:2.6.1'
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
     testCompile group: 'nl.jqno.equalsverifier', name: 'equalsverifier', version: equalsverifier_version

@@ -24,9 +24,6 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true
 
-  resources:
-    add-mappings: false
-
   http:
     encoding:
       # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly.

@@ -36,8 +36,6 @@ define others ...
 - [ ] Generates code coverage metrics with JaCoCo.
 - [ ] Integrates with Sonar for performing code quality analysis.
 - [ ] Publishing to a Maven repository using the Maven Publishing plugin.
-- [ ] Swagger Docs @Rasheed - wip
-- [ ] Swagger UI @Rasheed - wip
 - [ ] CheckStyle
 - [ ] Gateway
 - [ ] Tracing (sleuth + zipkin)
@@ -50,9 +48,64 @@ define others ...
 - [ ] Logbook
 - [ ] Sleuth (https://github.com/spring-cloud/spring-cloud-sleuth)
 - [ ] Java Client
+
+### Consul
+
 - [ ] Config management using Consul backed with Git @Ahmad
 - [ ] Backing service i.e. mongodb, cassandra, kafka,  etc. discovery through Consul @Ahmad
 - [ ] Secrets management using Consul + Vault @Ahmad
+- [ ] Gateway to discover services through Consul @Ahmad
+
+### Api Documentation
+
+- [x] Swagger Docs @Rasheed - wip
+- [ ] Swagger UI @Rasheed - wip
+
+### Filters
+
+- [ ] MDC filter to copy request id
+- [ ] Request id filter
+- [ ] Thread logging filter ( enable log per request on the fly )
+
+### Errors
+
+- [ ] Always return rest response!
+
+### Jackson
+
+- [ ] Indent output
+- [ ] Always include null fields in response
+
+### Client
+
+- [ ] Generate Java Client using Swagger API
+
+### Docker
+
+- [x] Build docker image
+- [x] Build docker compose files including backing services
+
+### Local Development
+
+- [ ] How to run subset of biz  microservices along with  backing services locally?
+- 
+
+### Testing?
+
+- [ ] How to write integration tests?
+- [ ] How to run integration tests?
+- [ ] E2E? Acceptance Tests != Integration Tests
+
+### Code Quality
+
+- [ ] Sonar
+- [ ] CheckStyle
+- [ ] Jacoco - Code Coverage http://www.eclemma.org/jacoco/
+
+### Rest Errors
+
+- [ ] Return harmonized rest errors
+- [ ] 
 
 ## Environment Variables
 
