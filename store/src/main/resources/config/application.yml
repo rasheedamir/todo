@@ -33,11 +33,21 @@ spring:
       # Force the encoding to the configured charset on HTTP requests and responses.
       force: true
 
-
 todo:
     kafka:
         bootstrap-servers: ${KAFKA_CLUSTER:localhost}
         todo-topic: todo
+
+    swagger:
+        title: ToDo Store API
+        description: ToDo Store API documentation
+        version: 0.0.1  # TODO - this should be set dynamically
+        termsOfServiceUrl:
+        contactName:
+        contactUrl:
+        contactEmail:
+        license:
+        licenseUrl:
 
 endpoints:
     env:
