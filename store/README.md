@@ -43,8 +43,9 @@ Configuration can be externalized in a Git repository. Each configuration proper
  The file name should be kept the same as the expected property, e.g. "server.port". The jHipster Consul config loader
  can be used as a docker container for example. The public image is available on the docker hub: jhipster/consul-config-loader
  An example can be found 
- The container should be provided a git2consul config file, example [here](../config/git2consul.json) as a volume mapping
- , and the following environment variables:
+ The container should be provided a git2consul config file, example [here](../config/git2consul.json) as a volume mapping.
+ The name property of the repos defined in git2consul.json follows the convention expected by the spring apps i.e. "config/<spring-app-name>"
+ The following environment variables should also be passed to the container:
   * `CONFIG_MODE=git`
   * `CONSUL_URL=`
  
