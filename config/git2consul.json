@@ -1,0 +1,25 @@
+{
+    "version": "1.0",
+    "repos" : [{
+        "name" : "config/store",
+        "url" : "https://github.com/ahmadiq/storeconfig.git",
+        "branches" : ["master"],
+        "include_branch_name" : false,
+        "source_root": "/",
+        "hooks": [{
+            "type" : "polling",
+            "interval" : "1"
+        }]
+    },
+    {
+        "name" : "config/search",
+        "url" : "https://github.com/ahmadiq/searchconfig.git",
+        "branches" : ["master"],
+        "include_branch_name" : false,
+        "source_root": "/",
+        "hooks": [{
+            "type" : "polling",
+            "interval" : "1"
+        }]
+    }]
+}
