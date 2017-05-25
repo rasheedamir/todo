@@ -6,5 +6,6 @@ spring:
             port: 8500
             healthCheckTimeout: 50s
             config:
-                enabled: true
                 format: KEY_VALUE
+                watch:
+                    enabled: true
