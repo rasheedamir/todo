@@ -12,3 +12,5 @@ todo:
         # replaced on runtime during testing
         bootstrap-servers: replace-on-runtime:9092
         todo-topic: replace-on-runtime
+        consumer:
+            group-id: todostore
