@@ -1,5 +1,14 @@
+environment: TEST
+
 spring:
   data:
       mongodb:
         host: 127.0.0.1
         port: 0
+        database: todo
+
+todo:
+    kafka:
+        # replaced on runtime during testing
+        bootstrap-servers: replace-on-runtime:9092
+        todo-topic: replace-on-runtime

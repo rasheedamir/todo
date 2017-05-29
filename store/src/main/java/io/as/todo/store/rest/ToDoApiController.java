@@ -33,6 +33,7 @@ public class ToDoApiController implements ToDoApi
         this.toDoDispatcher = toDoDispatcher;
     }
 
+    @Override
     public ResponseEntity<ApiToDo> addToDo(@ApiParam(value = "ToDo object that needs to be added to the store" ,required=true ) @Valid @RequestBody ApiCreateToDoCommand command)
     {
         ApiToDo dispatchedToDo = ToDoMapper.INSTANCE.mapToDoToApiToDo(toDoDispatcher.dispatch(ApiCreateToDoCommandMapper.INSTANCE.mapApiCreateToDoCommandToToDo(command)));
