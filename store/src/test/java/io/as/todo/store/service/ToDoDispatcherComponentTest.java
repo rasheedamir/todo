@@ -18,6 +18,9 @@ import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * this test shld be run through the suite
+ */
 @Category(ComponentTest.class)
 public class ToDoDispatcherComponentTest extends ComponentTestBase
 {
