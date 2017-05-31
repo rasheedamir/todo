@@ -67,6 +67,8 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor'
 
+    testCompile group: 'de.flapdoodle.embed', name:'de.flapdoodle.embed.mongo', version: '2.0.0'
+
     // kafka
     compile group: 'org.apache.kafka', name: 'kafka-clients', version:'0.10.1.0'
     compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '1.1.3.RELEASE'
@@ -81,6 +83,10 @@ dependencies {
     compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: logstash_logback_encoder_version
     compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
     compile group: 'ch.qos.logback', name: 'logback-core', version: logback_version
+
+    // logbook
+    compile group: 'org.zalando', name:'logbook-spring', version: logbook_spring_version
+    compile group: 'org.zalando', name:'logbook-spring-boot-starter', version: sbs_logbook_version
 
     // swagger ./gradlew bootRepackage buildDocker
     compile "io.springfox:springfox-swagger2:2.6.1"

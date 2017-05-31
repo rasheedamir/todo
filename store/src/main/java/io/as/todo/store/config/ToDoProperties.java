@@ -17,6 +17,13 @@ public class ToDoProperties
     {
         private String bootstrapServers;
         private String todoTopic;
+        private final Consumer consumer = new Consumer();
+
+        @Data
+        public static class Consumer
+        {
+            private String groupId;
+        }
     }
 
     @Data
