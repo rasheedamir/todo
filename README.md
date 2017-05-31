@@ -99,7 +99,8 @@ define others ...
 - [ ] How to run integration tests?
 - [ ] E2E? Acceptance Tests != Integration Tests
 - [ ] How to avoid polluting the backingservie (e.g. any biz service) with test data? Who sld clean it up?
-- [ ] CDC - Co
+- [ ] CDC - Consumer Drivent Contracts
+- [ ] 
 
 ### Code Quality
 
@@ -147,6 +148,10 @@ define others ...
 ### Metrics
 
 - [ ] Measure & store metrics
+
+### Client
+
+- [ ] Generate Java Client http://nebula-plugins.github.io/documentation/introduction_to_nebula.html#how-netflix-builds-software
 
 ## Environment Variables
 
