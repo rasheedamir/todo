@@ -2,10 +2,10 @@
     "version": "1.0",
     "repos" : [{
         "name" : "config/store",
-        "url" : "https://github.com/ahmadiq/storeconfig.git",
+        "url" : "https://github.com/ahmadiq/todoconfig.git",
         "branches" : ["master"],
         "include_branch_name" : false,
-        "source_root": "/",
+        "source_root": "store/",
         "hooks": [{
             "type" : "polling",
             "interval" : "1"
@@ -13,10 +13,10 @@
     },
     {
         "name" : "config/search",
-        "url" : "https://github.com/ahmadiq/searchconfig.git",
+        "url" : "https://github.com/ahmadiq/todoconfig.git",
         "branches" : ["master"],
         "include_branch_name" : false,
-        "source_root": "/",
+        "source_root": "search/",
         "hooks": [{
             "type" : "polling",
             "interval" : "1"
