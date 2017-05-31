@@ -2,7 +2,7 @@
     "version": "1.0",
     "repos" : [{
         "name" : "config/store",
-        "url" : "https://github.com/ahmadiq/todoconfig.git",
+        "url" : "https://github.com/stakater-todo/todoconfig.git",
         "branches" : ["master"],
         "include_branch_name" : false,
         "source_root": "store/",
@@ -13,7 +13,7 @@
     },
     {
         "name" : "config/search",
-        "url" : "https://github.com/ahmadiq/todoconfig.git",
+        "url" : "https://github.com/stakater-todo/todoconfig.git",
         "branches" : ["master"],
         "include_branch_name" : false,
         "source_root": "search/",
