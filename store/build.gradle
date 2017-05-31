@@ -83,6 +83,10 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
     compile group: 'ch.qos.logback', name: 'logback-core', version: logback_version
 
+    // logbook
+    compile group: 'org.zalando', name:'logbook-spring', version: logbook_spring_version
+    compile group: 'org.zalando', name:'logbook-spring-boot-starter', version: sbs_logbook_version
+
     // swagger ./gradlew bootRepackage buildDocker
     compile "io.springfox:springfox-swagger2:2.6.1"
     compile 'io.springfox:springfox-swagger-ui:2.6.1'
