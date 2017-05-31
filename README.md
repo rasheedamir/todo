@@ -40,14 +40,12 @@ define others ...
 - [ ] Gateway
 - [ ] Tracing (sleuth + zipkin)
 - [ ] Authentication
-- [ ] Service Discovery using Consul
 - [ ] Logging
 - [ ] Limit login attempts
 - [ ] Docker
 - [ ] Kubernetes
 - [ ] Logbook
 - [ ] Sleuth (https://github.com/spring-cloud/spring-cloud-sleuth)
-- [ ] Java Client
 
 ### Consul
 
@@ -81,7 +79,7 @@ define others ...
 
 ### Client
 
-- [ ] Generate Java Client using Swagger API
+- [ ] Generate Java Client using Swagger API (hystrix, observables, etc.)
 
 ### Docker
 
@@ -95,9 +93,13 @@ define others ...
 
 ### Testing?
 
+- [x] Unit Tests
+- [ ] Component Tests
 - [ ] How to write integration tests?
 - [ ] How to run integration tests?
 - [ ] E2E? Acceptance Tests != Integration Tests
+- [ ] How to avoid polluting the backingservie (e.g. any biz service) with test data? Who sld clean it up?
+- [ ] CDC - Co
 
 ### Code Quality
 
@@ -120,6 +122,31 @@ define others ...
 - [ ] Logbook
 - [ ] Log response times IN & OUT
 - [ ] MDC
+
+### Kafka
+
+- [ ] Enable debug logging
+
+### Monitoring - @Waseem
+
+- [ ] Measure & record API response times
+- [ ] Grafana graph to display average response times per api call
+- [ ] ZMon alert when average response time goes down below a certain limit
+- [ ] ZMon alert if number of servers reduce to 0 for any service
+- [ ] 
+
+### Documentation
+
+- [ ] Generate live docs using asciidoc
+- [ ] 
+
+### Load Testing
+
+- [ ] 
+
+### Metrics
+
+- [ ] Measure & store metrics
 
 ## Environment Variables
 

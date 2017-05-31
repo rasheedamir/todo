@@ -1,11 +1,14 @@
 package io.as.todo.store.mapper;
 
 import io.as.todo.core.domain.ToDo;
+import io.as.todo.store.UnitTest;
 import io.as.todo.store.json.request.ApiCreateToDoCommand;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import static org.junit.Assert.assertEquals;
 
+@Category({UnitTest.class})
 public class ApiCreateToDoCommandMapperTest
 {
     @Test

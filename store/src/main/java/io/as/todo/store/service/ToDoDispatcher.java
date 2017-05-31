@@ -45,7 +45,7 @@ public class ToDoDispatcher
 
         // post it
         EntityEvent entityEvent = createEvent(persistedToDo);
-        SendResult<String, EntityEvent> sendResult = null;
+        SendResult<String, EntityEvent> sendResult;
         try
         {
             sendResult = toDosKafkaTemplate.send(toDoProperties.getKafka().getTodoTopic(), entityEvent.getEntityId(), entityEvent).get();
