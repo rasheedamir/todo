@@ -113,6 +113,16 @@ define others ...
 - [ ] Return harmonized rest errors
 - [ ] 
 
+e.g.
+
+```
+NOT OK - when zuul fails to connect with the service
+{
+  "httpCode": 404,
+  "message": "Not found"
+}
+```
+
 ### ascii-doc
 
 - [ ] Using swagger generate ascii-doc which can be referenced in the README
@@ -152,6 +162,21 @@ define others ...
 ### Client
 
 - [ ] Generate Java Client http://nebula-plugins.github.io/documentation/introduction_to_nebula.html#how-netflix-builds-software
+
+### Audit
+
+- [ ] Enable auditing
+
+### Starter Auto Configs
+
+- [ ] ResponseTimeFilter
+- [ ] ThreadLoggingFilter
+- [ ] Jwt Security
+- [ ] 
+
+### Health Checks
+
+- [ ] Aggregated health checks (including attached backing resources)
 
 ## Environment Variables
 

@@ -1,5 +1,5 @@
 # this is mandatory; as environment is appended in each log for grouping in elastic stack
-environment: ${ENVIRONMENT}
+environment: ${ENVIRONMENT:DEV}
 
 server:
   port: 5001
@@ -9,8 +9,8 @@ spring:
     name: store
   data:
     mongodb:
-      host: ${MONGODB_HOST}
-      port: ${MONGODB_PORT}
+      host: ${MONGODB_HOST:localhost}
+      port: ${MONGODB_PORT:27017}
       database: todo
     rest:
       basePath: /api/v1
@@ -35,7 +35,7 @@ spring:
 
 todo:
     kafka:
-        bootstrap-servers: ${KAFKA_CLUSTER}
+        bootstrap-servers: ${KAFKA_CLUSTER:localhost:9092}
         todo-topic: todo
 
     swagger:

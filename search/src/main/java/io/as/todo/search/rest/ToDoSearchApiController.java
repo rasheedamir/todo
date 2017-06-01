@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ToDoSearchController
+public class ToDoSearchApiController implements ToDoSearchApi
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ToDoSearchController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ToDoSearchApiController.class);
 
     private final ToDoQueryService toDoQueryService;
 
     @Autowired
-    public ToDoSearchController(ToDoQueryService toDoQueryService)
+    public ToDoSearchApiController(ToDoQueryService toDoQueryService)
     {
         this.toDoQueryService = toDoQueryService;
     }
@@ -45,6 +45,7 @@ public class ToDoSearchController
     {
         LOGGER.info("Request to search todos");
 
+        // TODO implement this!
         Page<ApiToDo4Search> page = null;
         HttpHeaders headers = null;
 
