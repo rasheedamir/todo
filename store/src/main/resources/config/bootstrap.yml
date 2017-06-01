@@ -1,10 +1,11 @@
 spring:
-    application:
-        name: store
-
     # https://github.com/spring-cloud/spring-cloud-consul/blob/master/spring-cloud-consul-discovery/src/main/java/org/springframework/cloud/consul/discovery/ConsulDiscoveryProperties.java
     cloud:
         consul:
             host: localhost
             port: 8500
             healthCheckTimeout: 50s
+            config:
+                format: KEY_VALUE
+                watch:
+                    enabled: true

@@ -49,7 +49,7 @@ define others ...
 
 ### Consul
 
-- [ ] Config management using Consul backed with Git @Ahmad
+- [x] Config management using Consul backed with Git @Ahmad
 - [ ] Backing service i.e. mongodb, cassandra, kafka,  etc. discovery through Consul @Ahmad
 - [ ] Secrets management using Consul + Vault @Ahmad
 - [ ] Gateway to discover services through Consul @Ahmad
@@ -174,3 +174,4 @@ Here are the list of components (microservices):
 3. ElasticSearch
 4. Cassandra
 5. Consul
+

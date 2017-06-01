@@ -57,6 +57,7 @@ dependencies {
     // cloud consul
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-discovery'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-consul-config'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix'
 
     // mongodb
