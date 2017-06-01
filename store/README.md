@@ -22,7 +22,7 @@ Actuator endpoints allow you to monitor and interact with your application.
 
 Externalized configuration
 ==========================
-The application stack uses the jHipster consul config loader (wrapper for git2consul) and Spring Cloud's consul config,
+The application stack uses a consul config loader (wrapper for git2consul) and Spring Cloud's consul config,
  to read and get configuration from a git repo and load into Consul, and then update in the Spring environment.
  Within a Spring project the bootstrap.yml should be updated with the consul config properties. This will use consul
  to load configuration properties as well as watch consul for changes to these properties.
@@ -40,8 +40,8 @@ The application stack uses the jHipster consul config loader (wrapper for git2co
 ```
 
 Configuration can be externalized in a Git repository. Each configuration property should be added as a separate file.
- The file name should be kept the same as the expected property, e.g. "server.port". The jHipster Consul config loader
- can be used as a docker container for example. The public image is available on the docker hub: jhipster/consul-config-loader
+ The file name should be kept the same as the expected property, e.g. "server.port". The Consul config loader
+ can be used as a docker container for example. The public image is available on the docker hub: stakater/consul-config-loader
  An example can be found 
  The container should be provided a git2consul config file, example [here](../config/git2consul.json) as a volume mapping.
  The name property of the repos defined in git2consul.json follows the convention expected by the spring apps i.e. "config/<spring-app-name>"

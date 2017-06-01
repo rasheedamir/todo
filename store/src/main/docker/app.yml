@@ -29,7 +29,7 @@ services:
         command: consul agent -dev -ui -client 0.0.0.0
 
     consul-config-loader:
-        image: jhipster/consul-config-loader:v0.2.2
+        image: stakater/consul-config-loader:latest
         container_name: consul-config-loader
         labels:
             - "SERVICE_NAME=consul-config-loader"
