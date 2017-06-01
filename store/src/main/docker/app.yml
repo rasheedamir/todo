@@ -3,6 +3,7 @@ version: '2'
 services:
     todostore-app:
         image: todostore
+        container_name: todostore-app
         environment:
             - ENVIRONMENT=dev
             - SPRING_PROFILES_ACTIVE=prod,swagger
@@ -22,6 +23,18 @@ services:
             - 8500:8500
             - 8600:8600
         command: consul agent -dev -ui -client 0.0.0.0
+
+    consul-config-loader:
+        image: stakater/consul-config-loader:latest
+        container_name: consul-config-loader
+        volumes:
+            - ../../../../config/:/config
+        links:
+            - consul
+        environment:
+            - CONFIG_MODE=git
+            - INIT_SLEEP_SECONDS=5
+            - CONSUL_URL=consul
 
     mongo:
         container_name: mongo

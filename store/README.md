@@ -20,3 +20,35 @@ Actuator endpoints allow you to monitor and interact with your application.
 /actuator # Provides a hypermedia-based “discovery page” for the other endpoints. Requires Spring HATEOAS to be on the classpath.
 ```
 
+Externalized configuration
+==========================
+The application stack uses a consul config loader (wrapper for git2consul) and Spring Cloud's consul config,
+ to read and get configuration from a git repo and load into Consul, and then update in the Spring environment.
+ Within a Spring project the bootstrap.yml should be updated with the consul config properties. This will use consul
+ to load configuration properties as well as watch consul for changes to these properties.
+
+```yaml
+ spring:
+     cloud:
+         consul:
+             host: localhost
+             port: 8500
+             config:
+                 format: KEY_VALUE
+                 watch:
+                     enabled: true
+```
+
+Configuration can be externalized in a Git repository. Each configuration property should be added as a separate file.
+ The file name should be kept the same as the expected property, e.g. "server.port". The Consul config loader
+ can be used as a docker container for example. The public image is available on the docker hub: stakater/consul-config-loader
+ An example can be found 
+ The container should be provided a git2consul config file, example [here](../config/git2consul.json) as a volume mapping.
+ The name property of the repos defined in git2consul.json follows the convention expected by the spring apps i.e. "config/<spring-app-name>"
+ The following environment variables should also be passed to the container:
+  * `CONFIG_MODE=git`
+  * `CONSUL_URL=`
+ 
+Setting up Spring cloud consul config, and the Consul config loader will update the Spring Environment whenever a  
+ configuration property is added/updated/deleted, whether in git, or directly in consul. However for the updated property
+ be loaded in a Spring component, the `@RefreshScope` annotation should be used on the bean.
