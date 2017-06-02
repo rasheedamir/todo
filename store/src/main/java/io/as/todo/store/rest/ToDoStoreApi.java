@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Api(value = "todo", description = "The todo API")
-public interface ToDoApi
+public interface ToDoStoreApi
 {
     @ApiOperation(value = "Add a new todo to the store", notes = "This adds a new todo to the store!", response = ApiToDo.class, tags={"todo"})
     @ApiResponses(value = {

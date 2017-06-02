@@ -33,6 +33,7 @@ public class ToDoSearchApiController implements ToDoSearchApi
         this.toDoQueryService = toDoQueryService;
     }
 
+    @Override
     @RequestMapping(value = RestPath.API_VERSION_1_TODO_SEARCH,
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE,

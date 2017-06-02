@@ -36,10 +36,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Unit Test or Integration Test?
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(ToDoApiController.class)
+@WebMvcTest(ToDoStoreApiController.class)
 @ActiveProfiles(AppConstants.SPRING_PROFILE_TEST) //this forces application-test.yml to be loaded
 @Category({UnitTest.class}) // UNIT - SOLITARY
-public class ToDoApiControllerTest
+public class ToDoStoreApiControllerTest
 {
     @Autowired
     private MockMvc mvc;

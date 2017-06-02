@@ -21,14 +21,14 @@ import java.net.URISyntaxException;
 
 @RestController
 @RequestMapping(RestPath.API_VERSION_1)
-public class ToDoApiController implements ToDoApi
+public class ToDoStoreApiController implements ToDoStoreApi
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ToDoApiController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ToDoStoreApiController.class);
 
     private final ToDoDispatcher toDoDispatcher;
 
     @Autowired
-    public ToDoApiController(ToDoDispatcher toDoDispatcher)
+    public ToDoStoreApiController(ToDoDispatcher toDoDispatcher)
     {
         this.toDoDispatcher = toDoDispatcher;
     }
