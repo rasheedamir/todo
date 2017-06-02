@@ -133,6 +133,15 @@ NOT OK - when zuul fails to connect with the service
 - [ ] Logbook
 - [ ] Log response times IN & OUT
 - [ ] MDC
+- [ ] Add request id in every log
+- [ ] Each log statement should include: 
+[app-name][environment-name][request-id][build-number][]
+http://across.foreach.be/docs/across-standard-modules/ApplicationInfoModule/1.0.1.RELEASE/reference/
+- [ ] Sleuth? See how it can help in tracing...
+- [ ] Ensure request id is copied over when microservices are communication of REST or QUEUE/TOPIC
+- [ ] 
+
+instanceId that combines application, environment and hostname into a single String that uniquely identifies the application instance.
 
 ### Kafka
 
