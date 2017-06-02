@@ -42,7 +42,6 @@ The application stack uses a consul config loader (wrapper for git2consul) and S
 Configuration can be externalized in a Git repository. Each configuration property should be added as a separate file.
  The file name should be kept the same as the expected property, e.g. "server.port". The Consul config loader
  can be used as a docker container for example. The public image is available on the docker hub: stakater/consul-config-loader
- An example can be found 
  The container should be provided a git2consul config file, example [here](../config/git2consul.json) as a volume mapping.
  The name property of the repos defined in git2consul.json follows the convention expected by the spring apps i.e. "config/<spring-app-name>"
  The following environment variables should also be passed to the container:
@@ -52,3 +51,23 @@ Configuration can be externalized in a Git repository. Each configuration proper
 Setting up Spring cloud consul config, and the Consul config loader will update the Spring Environment whenever a  
  configuration property is added/updated/deleted, whether in git, or directly in consul. However for the updated property
  be loaded in a Spring component, the `@RefreshScope` annotation should be used on the bean.
+
+
+Backing Services configuration
+==============================
+The docker registrator is used to register all services being run in docker, into Consul as Key-Values.
+ This enables the Spring Consul Config to reload the service addresses in it's environment in case a change occurs
+ in any of the keys.
+ The following command is passed to the registrator container to run
+ `-internal consulkv://consul:8500/config/store/service` which follows the following format: 
+ `-internal consulkv://<consul_server>:<consul_port>/<app_config_path>/<prefix>`
+ * the -internal argument means that the exposed ports of the service containers will be used instead of published ports.
+ * the app_config_path is set to the path being used to store configuration for the store app
+ * the prefix is set to service to differentiate the service locations from the rest of the application configuration.
+
+The docker containers are passed the SERVICE_ID label, e.g. "SERVICE_ID=mongo" for the mongo container. This overrides
+ the default name of key which stores the value of the service location, which is otherwise follows a cumbersome
+ `<host>:<service_name>:<port>` format.
+ This service location key can then be accessed from the spring environment as `"${service.mongo.mongo}"` which is
+ actually following the format `"${<prefix>.<consul_service_key>.<SERVICE_ID>}"`
+
