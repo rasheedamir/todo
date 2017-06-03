@@ -4,6 +4,8 @@ services:
     todostore-app:
         image: todostore
         container_name: todostore-app
+        labels:
+            - "SERVICE_NAME=todostore-app"
         environment:
             - ENVIRONMENT=dev
             - SPRING_PROFILES_ACTIVE=prod,swagger
@@ -12,6 +14,8 @@ services:
             - MONGODB_HOST=mongo
             - MONGODB_PORT=27017
             - KAFKA_CLUSTER=kafka:9092
+        depends_on:
+            - registrator
         ports:
             - 8085:8080
 
@@ -27,6 +31,8 @@ services:
     consul-config-loader:
         image: stakater/consul-config-loader:latest
         container_name: consul-config-loader
+        labels:
+            - "SERVICE_NAME=consul-config-loader"
         volumes:
             - ../../../../config/:/config
         links:
@@ -36,15 +42,33 @@ services:
             - INIT_SLEEP_SECONDS=5
             - CONSUL_URL=consul
 
+    registrator:
+        image: gliderlabs/registrator:latest
+        container_name: registrator
+        links:
+            - consul
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock
+        command: -internal consulkv://consul:8500/config/store/service
+
     mongo:
         container_name: mongo
+        labels:
+            - "SERVICE_NAME=mongo"
+            - "SERVICE_ID=mongo"
         image: mongo:latest
         ports:
             - 27017:27017
+        depends_on:
+            - registrator
 
     kafka:
         image: spotify/kafka
         container_name: kafka
+        labels:
+            - "SERVICE_NAME=kafka"
         ports:
             - 2181:2181
             - 9092:9092
+        depends_on:
+            - registrator
