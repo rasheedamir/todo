@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.test.context.ActiveProfiles;
@@ -20,9 +21,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Category({UnitTest.class})
 public class ApiToDoJsonTest
 {
+    @Autowired
     private JacksonTester<ApiToDo> json;
 
-    @Ignore("Need to be fixed!")
     @Test
     public void should_serialize_json() throws Exception
     {
@@ -31,9 +32,7 @@ public class ApiToDoJsonTest
         boolean finished = true;
         ApiToDo apiToDo = ApiToDo.newBuilder().id(id).title(title).finished(finished).build();
 
-        assertThat(this.json.write(apiToDo))
-            .extractingJsonPathStringValue("@.title")
-            .isEqualTo(title);
+        assertThat(this.json.write(apiToDo)).extractingJsonPathStringValue("@.title").isEqualTo(title);
 
         // Assert against a `.json` file in the same package as the test
         // assertThat(this.json.write(details)).isEqualToJson("expected.json");

@@ -99,7 +99,7 @@ define others ...
 - [ ] How to run integration tests?
 - [ ] E2E? Acceptance Tests != Integration Tests
 - [ ] How to avoid polluting the backingservie (e.g. any biz service) with test data? Who sld clean it up?
-- [ ] CDC - Consumer Drivent Contracts
+- [ ] CDC - Consumer Driven Contracts
 - [ ] 
 
 ### Code Quality
