@@ -6,11 +6,7 @@ import io.as.todo.store.NoConsul;
 import io.as.todo.store.RestPath;
 import io.as.todo.store.TestProfile;
 import io.as.todo.store.UnitTest;
-import io.as.todo.store.json.request.ApiCreateToDoCommand;
-import io.as.todo.store.json.response.ApiToDo;
-import io.as.todo.store.mapper.ToDoMapper;
 import io.as.todo.store.service.ToDoDispatcher;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -58,15 +54,15 @@ public class ToDoStoreApiControllerTest
     public void should_create_todo() throws Exception
     {
         // GIVEN:
+        String id = "1";
         String title = "Title 1";
+        boolean finished = false;
         Date date = Date.from(LocalDateTime.now().toInstant(ZoneOffset.UTC));
-
-        ToDo expectedTodo = ToDo.newBuilder().id("1").title(title).finished(false).createdAt(date).build();
+        ToDo expectedTodo = ToDo.newBuilder().id(id).title(title).finished(finished).createdAt(date).build();
         given(this.toDoDispatcher.dispatch(any(ToDo.class))).willReturn(expectedTodo);
 
-        ApiToDo apiToDo = ToDoMapper.INSTANCE.mapToDoToApiToDo(expectedTodo);
-
         ApiCreateToDoCommand command = ApiCreateToDoCommand.newBuilder().title(title).build();
+        ApiToDo expectedApiToDo = ApiToDo.newBuilder().id(id).title(title).finished(finished).createdAt(date).build();
 
         // WHEN: & THEN:
         MvcResult response = this.mvc
@@ -80,14 +76,47 @@ public class ToDoStoreApiControllerTest
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andReturn();
 
-        ToDo actualToDo = objectMapper.readValue(response.getResponse().getContentAsByteArray(), ToDo.class);
-        assertThat(actualToDo).isEqualTo(expectedTodo);
+        ApiToDo actualApiToDo = objectMapper.readValue(response.getResponse().getContentAsByteArray(), ApiToDo.class);
+        assertThat(actualApiToDo).isEqualTo(expectedApiToDo);
     }
 
-    @Ignore("Need to be fixed!")
     @Test
-    public void should_fail_to_create_todo()
+    public void should_fail_to_create_todo_when_title_is_null() throws Exception
     {
+        // GIVEN:
 
+        // WHEN: & THEN:
+        ApiCreateToDoCommand command = ApiCreateToDoCommand.newBuilder().title(null).build();
+
+        MvcResult response = this.mvc
+            .perform(
+                post(RestPath.API_VERSION_1_TODO)
+                    .contentType(MediaType.APPLICATION_JSON_UTF8)
+                    .content(objectMapper.writeValueAsBytes(command))
+                    .accept(MediaType.APPLICATION_JSON_UTF8)
+            )
+            .andExpect(status().isBadRequest())
+            // .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andReturn();
+    }
+
+    @Test
+    public void should_fail_to_create_todo_when_title_is_empty() throws Exception
+    {
+        // GIVEN:
+
+        // WHEN: & THEN:
+        ApiCreateToDoCommand command = ApiCreateToDoCommand.newBuilder().title("").build();
+
+        MvcResult response = this.mvc
+            .perform(
+                post(RestPath.API_VERSION_1_TODO)
+                    .contentType(MediaType.APPLICATION_JSON_UTF8)
+                    .content(objectMapper.writeValueAsBytes(command))
+                    .accept(MediaType.APPLICATION_JSON_UTF8)
+            )
+            .andExpect(status().isBadRequest())
+            // .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+            .andReturn();
     }
 }

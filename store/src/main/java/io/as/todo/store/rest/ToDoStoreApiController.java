@@ -50,7 +50,7 @@ public class ToDoStoreApiController implements ToDoStoreApi
     {
         try
         {
-            return new URI("todo" + "/" + toDo.getId());
+            return new URI(RestPath.API_VERSION_1_TODO + "/" + toDo.getId());
         }
         catch (URISyntaxException e)
         {
