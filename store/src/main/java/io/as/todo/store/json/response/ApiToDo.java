@@ -1,5 +1,8 @@
 package io.as.todo.store.json.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
@@ -10,6 +13,8 @@ import java.util.Date;
 @ApiModel
 @Value
 @Builder(builderClassName = "Builder", builderMethodName = "newBuilder", toBuilder = true)
+@JsonDeserialize(builder = ApiToDo.Builder.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiToDo
 {
     @ApiModelProperty(position = 1, required = true, value = "The unique id of the todo")
@@ -20,4 +25,9 @@ public class ApiToDo
     private final boolean finished;
     @ApiModelProperty(position = 4, required = true, value = "Datetime when this todo was created")
     private final Date createdAt;
+
+    @JsonPOJOBuilder(withPrefix = "")
+    public static final class Builder
+    {
+    }
 }
