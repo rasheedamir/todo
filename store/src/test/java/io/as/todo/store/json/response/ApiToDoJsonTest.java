@@ -1,6 +1,7 @@
 package io.as.todo.store.json.response;
 
-import io.as.todo.store.AppConstants;
+import io.as.todo.store.NoConsul;
+import io.as.todo.store.TestProfile;
 import io.as.todo.store.UnitTest;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -8,16 +9,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @JsonTest
-@ActiveProfiles(AppConstants.SPRING_PROFILE_TEST) //this forces application-test.yml & bootstrap-test.yml to be loaded
-@TestPropertySource(properties = {"spring.cloud.bus.enabled=false", "spring.cloud.discovery.enabled=false"})
+@NoConsul
+@TestProfile
 @Category({UnitTest.class})
 public class ApiToDoJsonTest
 {
