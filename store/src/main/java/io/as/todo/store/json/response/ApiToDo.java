@@ -26,5 +26,8 @@ public class ApiToDo
     @ApiModelProperty(position = 4, required = true, value = "Datetime when this todo was created")
     private final Date createdAt;
 
-
+    @JsonPOJOBuilder(withPrefix = "")
+    public static class Builder
+    {
+    }
 }
