@@ -1,5 +1,6 @@
 package io.as.todo.store.rest;
 
+import io.as.todo.core.domain.ToDo;
 import io.as.todo.store.RestPath;
 import io.as.todo.store.json.request.ApiCreateToDoCommand;
 import io.as.todo.store.json.response.ApiToDo;
@@ -36,8 +37,10 @@ public class ToDoStoreApiController implements ToDoStoreApi
     @Override
     public ResponseEntity<ApiToDo> addToDo(@ApiParam(value = "ToDo object that needs to be added to the store" ,required=true ) @Valid @RequestBody ApiCreateToDoCommand command)
     {
-        ApiToDo dispatchedToDo = ToDoMapper.INSTANCE.mapToDoToApiToDo(toDoDispatcher.dispatch(ApiCreateToDoCommandMapper.INSTANCE.mapApiCreateToDoCommandToToDo(command)));
-        return ResponseEntity.created(createUri(dispatchedToDo)).body(dispatchedToDo);
+        ToDo recievedToDo = ApiCreateToDoCommandMapper.INSTANCE.mapApiCreateToDoCommandToToDo(command);
+        ToDo dispatchedToDo = toDoDispatcher.dispatch(recievedToDo);
+        ApiToDo apiToDo = ToDoMapper.INSTANCE.mapToDoToApiToDo(dispatchedToDo);
+        return ResponseEntity.created(createUri(apiToDo)).body(apiToDo);
     }
 
     // TODO - add update
