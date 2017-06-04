@@ -1,7 +1,0 @@
-spring:
-    # https://github.com/spring-cloud/spring-cloud-consul/blob/master/spring-cloud-consul-discovery/src/main/java/org/springframework/cloud/consul/discovery/ConsulDiscoveryProperties.java
-    cloud:
-        consul:
-            enabled: false
-        discovery:
-            enabled: false
