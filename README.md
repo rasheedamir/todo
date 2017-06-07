@@ -54,6 +54,7 @@ define others ...
 - [ ] Secrets management using Consul + Vault @Ahmad
 - [ ] Gateway to discover services through Consul @Ahmad
 - [ ] Developer should be able change configs locally in a file as each developer won't have his own git repo! @Ahmad
+- [ ] Access individual API's swagger docs through gateway @Ahmad
 
 ### Api Documentation
 
@@ -100,7 +101,7 @@ define others ...
 - [ ] E2E? Acceptance Tests != Integration Tests
 - [ ] How to avoid polluting the backingservie (e.g. any biz service) with test data? Who sld clean it up?
 - [ ] CDC - Consumer Driven Contracts
-- [ ] 
+- [ ] Synthetic Transactions
 
 ### Code Quality
 
@@ -153,7 +154,7 @@ instanceId that combines application, environment and hostname into a single Str
 - [ ] Grafana graph to display average response times per api call
 - [ ] ZMon alert when average response time goes down below a certain limit
 - [ ] ZMon alert if number of servers reduce to 0 for any service
-- [ ] 
+- [ ] Vizceral
 
 ### Documentation
 
@@ -181,11 +182,17 @@ instanceId that combines application, environment and hostname into a single Str
 - [ ] ResponseTimeFilter
 - [ ] ThreadLoggingFilter
 - [ ] Jwt Security
+- [ ] Customized Error Response
 - [ ] 
 
 ### Health Checks
 
 - [ ] Aggregated health checks (including attached backing resources)
+
+### Builder
+
+- [ ] Default values for collections
+- [ ] @Singular annotation for collections to add method to add single value as well
 
 ## Environment Variables
 
