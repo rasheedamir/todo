@@ -20,8 +20,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * this test shld be run through the suite
+ *
  */
-@Category(ComponentTest.class)
+@Category(ComponentTest.class) // TODO this is wrong as component test should run through whole "micro-service"
 public class ToDoDispatcherComponentTest extends ComponentTestBase
 {
     @Autowired
@@ -47,7 +48,7 @@ public class ToDoDispatcherComponentTest extends ComponentTestBase
         ToDo actualToDo = toDoStoreRepository.findOne(expectedToDo.getId());
         assertThat(actualToDo).isEqualTo(expectedToDo);
         // verify its sent on kafka
-        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
+        receiver.getLatch().await(20000, TimeUnit.MILLISECONDS);
         assertThat(receiver.getLatch().getCount()).isEqualTo(0); // check that the message was received
     }
 }

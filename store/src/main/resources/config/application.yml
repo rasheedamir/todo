@@ -1,5 +1,5 @@
 # this is mandatory; as environment is appended in each log for grouping in elastic stack
-environment: ${ENVIRONMENT:dev}
+environment: ${ENVIRONMENT:DEV}
 
 server:
   port: 5001

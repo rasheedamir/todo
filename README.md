@@ -54,6 +54,7 @@ define others ...
 - [ ] Secrets management using Consul + Vault @Ahmad
 - [ ] Gateway to discover services through Consul @Ahmad
 - [ ] Developer should be able change configs locally in a file as each developer won't have his own git repo! @Ahmad
+- [ ] Access individual API's swagger docs through gateway @Ahmad
 
 ### Api Documentation
 
@@ -99,7 +100,8 @@ define others ...
 - [ ] How to run integration tests?
 - [ ] E2E? Acceptance Tests != Integration Tests
 - [ ] How to avoid polluting the backingservie (e.g. any biz service) with test data? Who sld clean it up?
-- [ ] CDC - Co
+- [ ] CDC - Consumer Driven Contracts
+- [ ] Synthetic Transactions
 
 ### Code Quality
 
@@ -112,6 +114,16 @@ define others ...
 - [ ] Return harmonized rest errors
 - [ ] 
 
+e.g.
+
+```
+NOT OK - when zuul fails to connect with the service
+{
+  "httpCode": 404,
+  "message": "Not found"
+}
+```
+
 ### ascii-doc
 
 - [ ] Using swagger generate ascii-doc which can be referenced in the README
@@ -122,6 +134,15 @@ define others ...
 - [ ] Logbook
 - [ ] Log response times IN & OUT
 - [ ] MDC
+- [ ] Add request id in every log
+- [ ] Each log statement should include: 
+[app-name][environment-name][request-id][build-number][]
+http://across.foreach.be/docs/across-standard-modules/ApplicationInfoModule/1.0.1.RELEASE/reference/
+- [ ] Sleuth? See how it can help in tracing...
+- [ ] Ensure request id is copied over when microservices are communication of REST or QUEUE/TOPIC
+- [ ] 
+
+instanceId that combines application, environment and hostname into a single String that uniquely identifies the application instance.
 
 ### Kafka
 
@@ -133,7 +154,7 @@ define others ...
 - [ ] Grafana graph to display average response times per api call
 - [ ] ZMon alert when average response time goes down below a certain limit
 - [ ] ZMon alert if number of servers reduce to 0 for any service
-- [ ] 
+- [ ] Vizceral
 
 ### Documentation
 
@@ -147,6 +168,31 @@ define others ...
 ### Metrics
 
 - [ ] Measure & store metrics
+
+### Client
+
+- [ ] Generate Java Client http://nebula-plugins.github.io/documentation/introduction_to_nebula.html#how-netflix-builds-software
+
+### Audit
+
+- [ ] Enable auditing
+
+### Starter Auto Configs
+
+- [ ] ResponseTimeFilter
+- [ ] ThreadLoggingFilter
+- [ ] Jwt Security
+- [ ] Customized Error Response
+- [ ] 
+
+### Health Checks
+
+- [ ] Aggregated health checks (including attached backing resources)
+
+### Builder
+
+- [ ] Default values for collections
+- [ ] @Singular annotation for collections to add method to add single value as well
 
 ## Environment Variables
 
