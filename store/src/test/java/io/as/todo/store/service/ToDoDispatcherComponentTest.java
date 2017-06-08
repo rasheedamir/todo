@@ -20,8 +20,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * this test shld be run through the suite
+ *
  */
-@Category(ComponentTest.class)
+@Category(ComponentTest.class) // TODO this is wrong as component test should run through whole "micro-service"
 public class ToDoDispatcherComponentTest extends ComponentTestBase
 {
     @Autowired
