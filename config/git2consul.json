@@ -21,5 +21,16 @@
             "type" : "polling",
             "interval" : "1"
         }]
+    },
+    {
+        "name" : "config/gateway",
+        "url" : "https://github.com/stakater-todo/todoconfig.git",
+        "branches" : ["master"],
+        "include_branch_name" : false,
+        "source_root": "gateway/",
+        "hooks": [{
+            "type" : "polling",
+            "interval" : "1"
+        }]
     }]
 }
