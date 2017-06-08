@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
@@ -16,10 +16,10 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.TimeZone;
 
-@ComponentScan
 @EnableAutoConfiguration
 @SpringBootApplication
 @EnableZuulProxy
+@EnableDiscoveryClient
 public class ToDoGatewayApp
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(ToDoGatewayApp.class);
