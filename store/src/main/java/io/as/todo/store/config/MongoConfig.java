@@ -27,12 +27,12 @@ public class MongoConfig extends AbstractMongoConfiguration {
     @Value("${spring.data.mongodb.database}")
     private String databaseName;
 
-    @Value("${spring.data.mongodb.host}")
+    @Value("${spring.data.mongodb.host:mongo}")
     private String databaseHost;
-    @Value("${spring.data.mongodb.port}")
+    @Value("${spring.data.mongodb.port:27017}")
     private Integer databasePort;
 
-    @Value("${service.mongo.mongo}")
+    @Value("${service.mongo.mongo:mongo:27017}")
     private String consulMongoUri;
 
     @Override
