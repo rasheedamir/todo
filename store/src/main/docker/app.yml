@@ -3,9 +3,9 @@ version: '2'
 services:
     todostore-app:
         image: todostore
-        container_name: todostore-app
+        container_name: store
         labels:
-            - "SERVICE_NAME=todostore-app"
+            - "SERVICE_NAME=store"
         environment:
             - ENVIRONMENT=dev
             - SPRING_PROFILES_ACTIVE=prod,swagger
@@ -16,8 +16,25 @@ services:
             - KAFKA_CLUSTER=kafka:9092
         depends_on:
             - registrator
+            - registrator2
         ports:
             - 8085:8080
+
+    todogateway-app:
+        image: todogateway
+        container_name: gateway
+        labels:
+            - "SERVICE_NAME=gateway"
+        environment:
+            - ENVIRONMENT=dev
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONSUL_HOST=consul
+            - SPRING_CLOUD_CONSUL_PORT=8500
+        depends_on:
+            - registrator
+            - registrator2
+        ports:
+            - 4001:8080
 
     consul:
         image: consul:0.8.3
@@ -51,6 +68,15 @@ services:
             - /var/run/docker.sock:/tmp/docker.sock
         command: -internal consulkv://consul:8500/config/store/service
 
+    registrator2:
+        image: gliderlabs/registrator:latest
+        container_name: registrator2
+        links:
+            - consul
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock
+        command: -internal consul://consul:8500/config/store/service
+
     mongo:
         container_name: mongo
         labels:
@@ -61,6 +87,7 @@ services:
             - 27017:27017
         depends_on:
             - registrator
+            - registrator2
 
     kafka:
         image: spotify/kafka
@@ -72,3 +99,4 @@ services:
             - 9092:9092
         depends_on:
             - registrator
+            - registrator2
