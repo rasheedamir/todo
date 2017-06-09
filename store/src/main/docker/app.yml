@@ -17,6 +17,7 @@ services:
         depends_on:
             - registrator
             - registrator2
+            - vault
         ports:
             - 8085:8080
 
@@ -33,8 +34,21 @@ services:
         depends_on:
             - registrator
             - registrator2
+            - vault
         ports:
             - 4001:8080
+
+    vault:
+        image: vault:0.7.3
+        container_name: vault
+        ports:
+            - 8200:8200
+        volumes:
+            - ../vault/:/vault/config/
+            - data-volume:/vault/file
+        environment:
+            - VAULT_ADDR=http://127.0.0.1:8200
+        entrypoint: vault server -config=/vault/config/vault.json
 
     consul:
         image: consul:0.8.3
@@ -100,3 +114,6 @@ services:
         depends_on:
             - registrator
             - registrator2
+
+volumes:
+  data-volume:
